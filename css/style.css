@@ -122,7 +122,7 @@ a:focus-visible {
 
     background:
         linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.25)),
-        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70')
+        url('../images/veiculos/porsche.jpg')
         center/cover no-repeat;
 }
 
@@ -428,7 +428,7 @@ a:focus-visible {
     padding: 70px 8%;
     background:
         linear-gradient(90deg, #090909, rgba(0,0,0,0.65)),
-        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7')
+        url('../images/veiculos/esportivo.jpg')
         center/cover no-repeat;
 
     display: flex;
