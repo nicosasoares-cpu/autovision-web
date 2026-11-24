@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Confira notícias, tecnologias, tendências e novidades do universo automotivo na AutoVision.">
+
+    <title>Notícias | AutoVision</title>
+
+    <!-- Folha de estilos externa -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- JavaScript -->
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header class="header">
+        <div class="header__container">
+
+            <a href="../index.html"
+                class="header__logo"
+                aria-label="AutoVision - Página inicial">
+                AUTO<span>VISION</span>
+            </a>
+
+            <nav class="nav" aria-label="Menu principal">
+                <ul class="nav__list">
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="../index.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="modelos.html">
+                            Modelos
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active"
+                            href="noticias.html"
+                            aria-current="page">
+                            Notícias
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="comparativo.html">
+                            Comparativo
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="contato.html">
+                            Contato
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <!-- BANNER DA PÁGINA -->
+        <section class="page-banner">
+
+            <div class="page-banner__content">
+
+                <span class="page-banner__tag">
+                    MUNDO AUTOMOTIVO
+                </span>
+
+                <h1 class="page-banner__title">
+                    Notícias e novidades
+                </h1>
+
+                <p class="page-banner__description">
+                    Descubra as principais tendências, inovações
+                    e novidades que movimentam o universo
+                    dos automóveis.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- CONTEÚDOS AUTOMOTIVOS: CSS GRID -->
+        <section class="models" aria-labelledby="newsTitle">
+
+            <div class="section-heading">
+
+                <span class="section-heading__tag">
+                    FIQUE INFORMADO
+                </span>
+
+                <h2 class="section-heading__title" id="newsTitle">
+                    Tendências e inovação no setor
+                </h2>
+
+                <p class="section-heading__description">
+                    Confira conteúdos sobre tecnologia, desempenho,
+                    sustentabilidade e inovação automotiva.
+                </p>
+
+            </div>
+
+            <!-- Grade de seis cartões informativos -->
+            <div class="models__grid">
+
+                <!-- NOTÍCIA 01: MOBILIDADE ELÉTRICA -->
+                <article class="card">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7"
+                        alt="Carro elétrico moderno"
+                        loading="lazy">
+
+                    <div class="card__content">
+
+                        <span class="card__category">
+                            TECNOLOGIA
+                        </span>
+
+                        <h3 class="card__title">
+                            O crescimento dos carros elétricos
+                        </h3>
+
+                        <p class="card__description">
+                            A mobilidade elétrica está transformando
+                            a indústria automotiva com novas tecnologias
+                            e alternativas aos combustíveis tradicionais.
+                        </p>
+
+                        <a
+                            href="https://www.iea.org/energy-system/transport/electric-vehicles"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card__link"
+                            aria-label="Saiba mais sobre veículos elétricos na IEA, em nova aba">
+                            Saiba mais — IEA →
+                        </a>
+
+                    </div>
+                </article>
+
+                <!-- NOTÍCIA 02: MERCADO AUTOMOTIVO -->
+                <article class="card">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                        alt="Automóvel esportivo em destaque"
+                        loading="lazy">
+
+                    <div class="card__content">
+
+                        <span class="card__category">
+                            MERCADO
+                        </span>
+
+                        <h3 class="card__title">
+                            O futuro dos carros esportivos
+                        </h3>
+
+                        <p class="card__description">
+                            Fabricantes buscam combinar alto desempenho,
+                            eficiência energética e tecnologias
+                            cada vez mais avançadas.
+                        </p>
+
+                        <a
+                            href="https://www.caranddriver.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card__link"
+                            aria-label="Acessar o portal Car and Driver em nova aba">
+                            Acessar Car and Driver →
+                        </a>
+
+                    </div>
+                </article>
+
+                <!-- NOTÍCIA 03: DIREÇÃO AUTÔNOMA -->
+                <article class="card">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c"
+                        alt="Automóvel moderno"
+                        loading="lazy">
+
+                    <div class="card__content">
+
+                        <span class="card__category">
+                            INOVAÇÃO
+                        </span>
+
+                        <h3 class="card__title">
+                            A evolução da direção autônoma
+                        </h3>
+
+                        <p class="card__description">
+                            Sensores e sistemas inteligentes auxiliam
+                            os motoristas na identificação de obstáculos
+                            e na segurança durante a condução.
+                        </p>
+
+                        <a
+                            href="https://www.nhtsa.gov/vehicle-safety/automated-vehicles-safety"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card__link"
+                            aria-label="Saiba mais sobre veículos automatizados na NHTSA, em nova aba">
+                            Saiba mais — NHTSA →
+                        </a>
+
+                    </div>
+                </article>
+
+                <!-- NOTÍCIA 04: ENGENHARIA AUTOMOTIVA -->
+                <article class="card">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                        alt="Porsche esportivo"
+                        loading="lazy">
+
+                    <div class="card__content">
+
+                        <span class="card__category">
+                            DESEMPENHO
+                        </span>
+
+                        <h3 class="card__title">
+                            Engenharia e potência nos supercarros
+                        </h3>
+
+                        <p class="card__description">
+                            Aerodinâmica, motores e materiais especiais
+                            são fundamentais para alcançar
+                            desempenhos extraordinários.
+                        </p>
+
+                        <a
+                            href="https://www.topgear.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card__link"
+                            aria-label="Acessar o portal Top Gear em nova aba">
+                            Acessar Top Gear →
+                        </a>
+
+                    </div>
+                </article>
+
+                <!-- NOTÍCIA 05: HISTÓRIA AUTOMOTIVA -->
+                <article class="card">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d"
+                        alt="Automóvel esportivo americano"
+                        loading="lazy">
+
+                    <div class="card__content">
+
+                        <span class="card__category">
+                            HISTÓRIA
+                        </span>
+
+                        <h3 class="card__title">
+                            A história dos muscle cars
+                        </h3>
+
+                        <p class="card__description">
+                            Conheça a trajetória dos automóveis
+                            americanos que conquistaram gerações
+                            com potência e personalidade.
+                        </p>
+
+                        <a
+                            href="https://www.motortrend.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card__link"
+                            aria-label="Acessar o portal MotorTrend em nova aba">
+                            Acessar MotorTrend →
+                        </a>
+
+                    </div>
+                </article>
+
+                <!-- NOTÍCIA 06: CONECTIVIDADE -->
+                <article class="card">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16"
+                        alt="Automóvel moderno"
+                        loading="lazy">
+
+                    <div class="card__content">
+
+                        <span class="card__category">
+                            TECNOLOGIA
+                        </span>
+
+                        <h3 class="card__title">
+                            Tecnologia e conectividade nos veículos
+                        </h3>
+
+                        <p class="card__description">
+                            Painéis digitais, sistemas inteligentes
+                            e conectividade estão criando experiências
+                            mais modernas dentro dos automóveis.
+                        </p>
+
+                        <a
+                            href="https://www.autonews.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="card__link"
+                            aria-label="Acessar o portal Automotive News em nova aba">
+                            Acessar Automotive News →
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+
+        <div class="footer__container">
+
+            <a
+                href="../index.html"
+                class="footer__logo"
+                aria-label="AutoVision - Página inicial">
+                AUTO<span>VISION</span>
+            </a>
+
+            <p class="footer__text">
+                © 2026 AutoVision. Projeto acadêmico de Web Coding.
+            </p>
+
+            <p class="footer__credits">
+                Desenvolvido com HTML5, CSS3 e JavaScript.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

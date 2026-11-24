@@ -1,41 +1,83 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AutoVision - Explore o universo automotivo.">
+    <meta name="description"
+        content="AutoVision - Conheça modelos, lançamentos, comparativos e novidades do universo automotivo.">
+
     <title>AutoVision | Mundo Automotivo</title>
 
+    <!-- Folha de estilos externa -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript -->
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
     <header class="header">
         <div class="header__container">
-            <a href="index.html" class="header__logo">
+
+            <a href="index.html" class="header__logo" aria-label="AutoVision - Página inicial">
                 AUTO<span>VISION</span>
             </a>
 
-            <nav class="nav">
+            <nav class="nav" aria-label="Menu principal">
                 <ul class="nav__list">
-                    <li><a class="nav__link nav__link--active" href="index.html">Início</a></li>
-                    <li><a class="nav__link" href="modelos.html">Modelos</a></li>
-                    <li><a class="nav__link" href="noticias.html">Notícias</a></li>
-                    <li><a class="nav__link" href="comparativo.html">Comparativo</a></li>
-                    <li><a class="nav__link" href="contato.html">Contato</a></li>
+
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active"
+                            href="index.html"
+                            aria-current="page">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="pages/modelos.html">
+                            Modelos
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="pages/noticias.html">
+                            Notícias
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="pages/comparativo.html">
+                            Comparativo
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="pages/contato.html">
+                            Contato
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
+
         </div>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main>
 
+        <!-- BANNER PRINCIPAL -->
         <section class="hero">
             <div class="hero__content">
-                <span class="hero__tag">O UNIVERSO AUTOMOTIVO</span>
+
+                <span class="hero__tag">
+                    O UNIVERSO AUTOMOTIVO
+                </span>
 
                 <h1 class="hero__title">
                     A paixão por carros
@@ -48,94 +90,243 @@
                     do universo automotivo.
                 </p>
 
-                <a href="modelos.html" class="hero__button">
+                <a href="pages/modelos.html" class="hero__button">
                     Explorar modelos
                 </a>
+
             </div>
         </section>
 
+        <!-- CARROS EM DESTAQUE: CSS GRID -->
         <section class="featured">
+
             <div class="section-heading">
-                <span class="section-heading__tag">NOSSA SELEÇÃO</span>
-                <h2 class="section-heading__title">Carros em destaque</h2>
+
+                <span class="section-heading__tag">
+                    NOSSA SELEÇÃO
+                </span>
+
+                <h2 class="section-heading__title">
+                    Carros em destaque
+                </h2>
+
                 <p class="section-heading__description">
-                    Máquinas que representam potência, tecnologia e design.
+                    Máquinas que representam potência,
+                    tecnologia e design.
                 </p>
+
             </div>
 
             <div class="featured__grid">
 
-                <article class="card">
-                    <img class="card__image"
-                         src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
-                         alt="Porsche esportivo">
+                <!-- Cartão com modificador BEM -->
+                <article class="card card--destaque">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                        alt="Porsche esportivo"
+                        loading="lazy">
 
                     <div class="card__content">
-                        <span class="card__category">ESPORTIVO</span>
-                        <h3 class="card__title">Porsche 911</h3>
+
+                        <span class="card__category">
+                            ESPORTIVO
+                        </span>
+
+                        <h3 class="card__title">
+                            Porsche 911
+                        </h3>
+
                         <p class="card__description">
                             Um ícone de desempenho e engenharia automotiva.
                         </p>
-                        <a href="modelos.html" class="card__link">Conhecer modelo →</a>
+
+                        <a href="pages/modelos.html"
+                            class="card__link"
+                            aria-label="Conhecer o Porsche 911">
+                            Conhecer modelo →
+                        </a>
+
                     </div>
                 </article>
 
+                <!-- BMW -->
                 <article class="card">
-                    <img class="card__image"
-                         src="https://images.unsplash.com/photo-1555215695-3004980ad54e"
-                         alt="BMW esportivo">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1555215695-3004980ad54e"
+                        alt="BMW esportivo"
+                        loading="lazy">
 
                     <div class="card__content">
-                        <span class="card__category">LUXO</span>
-                        <h3 class="card__title">BMW Série 3</h3>
+
+                        <span class="card__category">
+                            LUXO
+                        </span>
+
+                        <h3 class="card__title">
+                            BMW Série 3
+                        </h3>
+
                         <p class="card__description">
                             Conforto, sofisticação e desempenho em um só carro.
                         </p>
-                        <a href="modelos.html" class="card__link">Conhecer modelo →</a>
+
+                        <a href="pages/modelos.html"
+                            class="card__link"
+                            aria-label="Conhecer o BMW Série 3">
+                            Conhecer modelo →
+                        </a>
+
                     </div>
                 </article>
 
+                <!-- Superesportivos -->
                 <article class="card">
-                    <img class="card__image"
-                         src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
-                         alt="Carro esportivo de luxo">
+
+                    <img
+                        class="card__image"
+                        src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+                        alt="Carro esportivo de luxo"
+                        loading="lazy">
 
                     <div class="card__content">
-                        <span class="card__category">PERFORMANCE</span>
-                        <h3 class="card__title">Superesportivos</h3>
+
+                        <span class="card__category">
+                            PERFORMANCE
+                        </span>
+
+                        <h3 class="card__title">
+                            Superesportivos
+                        </h3>
+
                         <p class="card__description">
                             Conheça máquinas feitas para impressionar.
                         </p>
-                        <a href="modelos.html" class="card__link">Conhecer modelos →</a>
+
+                        <a href="pages/modelos.html"
+                            class="card__link"
+                            aria-label="Conhecer os modelos superesportivos">
+                            Conhecer modelos →
+                        </a>
+
                     </div>
                 </article>
 
             </div>
         </section>
 
+        <!-- CATEGORIAS AUTOMOTIVAS: FLEXBOX -->
+        <section class="categories">
+
+            <div class="section-heading">
+
+                <span class="section-heading__tag">
+                    EXPLORE O UNIVERSO AUTOMOTIVO
+                </span>
+
+                <h2 class="section-heading__title">
+                    Categorias automotivas
+                </h2>
+
+                <p class="section-heading__description">
+                    Conheça diferentes estilos e propostas de veículos.
+                </p>
+
+            </div>
+
+            <div class="categories__list">
+
+                <article class="categories__item">
+
+                    <h3 class="categories__title">
+                        Esportivos
+                    </h3>
+
+                    <p class="categories__description">
+                        Desempenho, velocidade e prazer ao dirigir.
+                    </p>
+
+                    <a href="pages/modelos.html" class="categories__link">
+                        Ver modelos →
+                    </a>
+
+                </article>
+
+                <article class="categories__item">
+
+                    <h3 class="categories__title">
+                        Veículos de luxo
+                    </h3>
+
+                    <p class="categories__description">
+                        Sofisticação, conforto e tecnologia de alto nível.
+                    </p>
+
+                    <a href="pages/modelos.html" class="categories__link">
+                        Ver modelos →
+                    </a>
+
+                </article>
+
+                <article class="categories__item">
+
+                    <h3 class="categories__title">
+                        Superesportivos
+                    </h3>
+
+                    <p class="categories__description">
+                        Engenharia avançada e desempenho extraordinário.
+                    </p>
+
+                    <a href="pages/modelos.html" class="categories__link">
+                        Ver modelos →
+                    </a>
+
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SOBRE O PROJETO -->
         <section class="about">
+
             <div class="about__content">
-                <span class="about__tag">SOBRE A AUTOVISION</span>
+
+                <span class="about__tag">
+                    SOBRE A AUTOVISION
+                </span>
+
                 <h2 class="about__title">
                     Muito além de quatro rodas.
                 </h2>
+
                 <p class="about__description">
                     A AutoVision é um espaço dedicado aos apaixonados
                     pelo universo automotivo. Aqui você encontra
                     informações, novidades, comparações e conteúdos
                     sobre os carros que fazem história.
                 </p>
-                <a href="noticias.html" class="about__button">
+
+                <a href="pages/noticias.html" class="about__button">
                     Ver novidades
                 </a>
+
             </div>
         </section>
 
     </main>
 
+    <!-- RODAPÉ -->
     <footer class="footer">
+
         <div class="footer__container">
-            <a href="index.html" class="footer__logo">
+
+            <a href="index.html"
+                class="footer__logo"
+                aria-label="AutoVision - Página inicial">
                 AUTO<span>VISION</span>
             </a>
 
@@ -146,8 +337,11 @@
             <p class="footer__credits">
                 Desenvolvido com HTML5, CSS3 e JavaScript.
             </p>
+
         </div>
+
     </footer>
 
 </body>
+
 </html>

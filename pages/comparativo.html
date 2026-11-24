@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Compare motores, potência, transmissão e características técnicas de veículos esportivos na AutoVision.">
+
+    <title>Comparativo | AutoVision</title>
+
+    <!-- Folha de estilos externa -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- JavaScript -->
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header class="header">
+
+        <div class="header__container">
+
+            <a href="../index.html"
+                class="header__logo"
+                aria-label="AutoVision - Página inicial">
+                AUTO<span>VISION</span>
+            </a>
+
+            <nav class="nav" aria-label="Menu principal">
+
+                <ul class="nav__list">
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="../index.html">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="modelos.html">
+                            Modelos
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="noticias.html">
+                            Notícias
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active"
+                            href="comparativo.html"
+                            aria-current="page">
+                            Comparativo
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a class="nav__link" href="contato.html">
+                            Contato
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <!-- BANNER DA PÁGINA -->
+        <section class="page-banner">
+
+            <div class="page-banner__content">
+
+                <span class="page-banner__tag">
+                    ANÁLISE AUTOMOTIVA
+                </span>
+
+                <h1 class="page-banner__title">
+                    Compare os modelos
+                </h1>
+
+                <p class="page-banner__description">
+                    Analise características e descubra as diferenças
+                    entre grandes máquinas do mundo automotivo.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- COMPARAÇÃO TÉCNICA -->
+        <section class="models" aria-labelledby="comparisonTitle">
+
+            <div class="section-heading">
+
+                <span class="section-heading__tag">
+                    COMPARAÇÃO TÉCNICA
+                </span>
+
+                <h2 class="section-heading__title" id="comparisonTitle">
+                    Qual deles se destaca?
+                </h2>
+
+                <p class="section-heading__description">
+                    Confira as características de três veículos
+                    esportivos e conheça suas principais diferenças.
+                </p>
+
+            </div>
+
+            <div class="comparison">
+
+                <div class="comparison__container">
+
+                    <!-- Contêiner responsivo da tabela -->
+                    <div
+                        class="comparison__table-wrapper"
+                        role="region"
+                        aria-label="Tabela comparativa de veículos"
+                        tabindex="0">
+
+                        <!-- Tabela semântica -->
+                        <table
+                            class="comparison__table"
+                            aria-describedby="comparisonNote">
+
+                            <caption class="comparison__caption">
+                                Comparativo ilustrativo de veículos esportivos
+                            </caption>
+
+                            <thead>
+
+                                <tr>
+                                    <th scope="col">Características</th>
+                                    <th scope="col">Porsche 911</th>
+                                    <th scope="col">BMW M3</th>
+                                    <th scope="col">Audi R8</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <th scope="row">Categoria</th>
+                                    <td>Esportivo</td>
+                                    <td>Esportivo</td>
+                                    <td>Superesportivo</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Motor</th>
+                                    <td>3.0 Boxer</td>
+                                    <td>3.0 Biturbo</td>
+                                    <td>5.2 V10</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Potência aproximada</th>
+                                    <td>388 cv</td>
+                                    <td>480 cv</td>
+                                    <td>570 cv</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Tração</th>
+                                    <td>Traseira</td>
+                                    <td>Traseira</td>
+                                    <td>Traseira</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Transmissão</th>
+                                    <td>Automática PDK</td>
+                                    <td>Automática</td>
+                                    <td>Automática S tronic</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Combustível</th>
+                                    <td>Gasolina</td>
+                                    <td>Gasolina</td>
+                                    <td>Gasolina</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- Orientação para dispositivos móveis -->
+                    <p class="comparison__hint">
+                        Em telas menores, deslize a tabela horizontalmente
+                        para visualizar todas as informações.
+                    </p>
+
+                    <!-- Observação sobre os dados -->
+                    <p class="comparison__note" id="comparisonNote">
+                        Os dados apresentados são ilustrativos e aproximados.
+                        As especificações podem variar conforme o ano,
+                        a versão e o mercado de comercialização.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CHAMADA PARA O CATÁLOGO -->
+        <section class="about">
+
+            <div class="about__content">
+
+                <span class="about__tag">
+                    CONTINUE EXPLORANDO
+                </span>
+
+                <h2 class="about__title">
+                    Conheça outros veículos.
+                </h2>
+
+                <p class="about__description">
+                    Explore nosso catálogo e utilize a ferramenta
+                    de pesquisa para descobrir outros modelos
+                    de diferentes fabricantes.
+                </p>
+
+                <a href="modelos.html" class="about__button">
+                    Explorar catálogo
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+
+        <div class="footer__container">
+
+            <a href="../index.html"
+                class="footer__logo"
+                aria-label="AutoVision - Página inicial">
+                AUTO<span>VISION</span>
+            </a>
+
+            <p class="footer__text">
+                © 2026 AutoVision. Projeto acadêmico de Web Coding.
+            </p>
+
+            <p class="footer__credits">
+                Desenvolvido com HTML5, CSS3 e JavaScript.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
