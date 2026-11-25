@@ -962,3 +962,99 @@ img {
         width: 100%;
     }
 }
+
+
+/* =========================================
+   METODOLOGIA BEM E ACESSIBILIDADE VISUAL
+========================================= */
+
+/* Modificador BEM: cartão em destaque */
+
+.card--destaque {
+    border: 2px solid var(--cor-vermelha);
+    box-shadow: 0 4px 20px rgba(227, 38, 54, 0.15);
+}
+
+.card--destaque:hover {
+    box-shadow: 0 8px 30px rgba(227, 38, 54, 0.25);
+}
+
+/* Interação com os cartões */
+
+.card__link {
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.card__link:hover {
+    color: var(--cor-texto);
+    text-decoration: underline;
+}
+
+.card:focus-within {
+    border-color: var(--cor-vermelha);
+}
+
+/* Acessibilidade e navegação pelo teclado */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.comparison__table-wrapper:focus-visible {
+    outline: 2px solid var(--cor-vermelha);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   APRIMORAMENTOS DO COMPARATIVO
+========================================= */
+
+.comparison__table-wrapper {
+    max-width: 100%;
+}
+
+.comparison__caption {
+    padding: 18px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.comparison__table tbody th {
+    background-color: transparent;
+    border-top: 1px solid #303035;
+    color: var(--cor-texto);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-align: left;
+}
+
+.comparison__hint {
+    margin-top: 15px;
+    color: var(--cor-secundaria);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* =========================================
+   APRIMORAMENTOS DO FORMULÁRIO
+========================================= */
+
+.contact__instructions {
+    color: var(--cor-secundaria);
+    font-size: 12px;
+}
+
+.contact__note {
+    padding: 15px;
+    background-color: var(--cor-fundo);
+    border-left: 3px solid var(--cor-vermelha);
+    border-radius: 4px;
+    color: var(--cor-secundaria);
+    font-size: 12px;
+    line-height: 1.7;
+}
