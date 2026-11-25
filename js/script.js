@@ -1,26 +1,125 @@
 // =========================================
+// AUTOVISION - FUNCIONALIDADES JAVASCRIPT
+// =========================================
+
+
+// =========================================
 // FORMULÁRIO DE CONTATO
 // =========================================
 
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
+
+    const nomeInput = document.getElementById("nome");
+    const emailInput = document.getElementById("email");
+    const assuntoInput = document.getElementById("assunto");
+    const mensagemInput = document.getElementById("mensagem");
+    const feedback = document.getElementById("contactFeedback");
+
+    // Exibe uma mensagem de erro e direciona o foco
+    // para o campo que precisa ser corrigido.
+
+    function mostrarErro(mensagem, campo) {
+
+        feedback.textContent = mensagem;
+
+        campo.focus();
+    }
+
+    // Limpa o feedback quando o usuário altera os campos.
+
+    contactForm.addEventListener("input", function () {
+
+        feedback.textContent = "";
+
+    });
+
+    // Validação dos dados do formulário.
+
     contactForm.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
-        const nome = document.getElementById("nome").value.trim();
-        const feedback = document.getElementById("contactFeedback");
+        const nome = nomeInput.value.trim();
+        const email = emailInput.value.trim();
+        const assunto = assuntoInput.value;
+        const mensagem = mensagemInput.value.trim();
 
-        if (nome === "") {
-            feedback.textContent = "Por favor, informe seu nome.";
+        // Validação do nome.
+
+        if (nome.length < 3 || nome.length > 100) {
+
+            mostrarErro(
+                "Informe um nome com 3 a 100 caracteres.",
+                nomeInput
+            );
+
             return;
         }
 
-        feedback.textContent = "Mensagem enviada com sucesso! Obrigado pelo contato.";
+        // Validação do endereço de e-mail.
+
+        const emailValido =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailValido.test(email) || email.length > 150) {
+
+            mostrarErro(
+                "Informe um endereço de e-mail válido.",
+                emailInput
+            );
+
+            return;
+        }
+
+        // Validação do assunto.
+
+        const assuntosPermitidos = [
+            "Duvida",
+            "Sugestao",
+            "Elogio",
+            "Outro"
+        ];
+
+        if (!assuntosPermitidos.includes(assunto)) {
+
+            mostrarErro(
+                "Selecione um assunto válido.",
+                assuntoInput
+            );
+
+            return;
+        }
+
+        // Validação da mensagem.
+
+        if (mensagem.length < 10 || mensagem.length > 1000) {
+
+            mostrarErro(
+                "A mensagem deve conter entre 10 e 1000 caracteres.",
+                mensagemInput
+            );
+
+            return;
+        }
+
+        // Limpa os campos após a validação.
 
         contactForm.reset();
+
+        // Confirmação da validação acadêmica.
+        // Nenhum dado é enviado para um servidor.
+
+        feedback.textContent =
+            `Obrigado, ${nome}! Seus dados foram validados com sucesso. ` +
+            "Este formulário é demonstrativo e nenhuma mensagem foi enviada.";
+
     });
+
 }
+
+
 // =========================================
 // CONSULTA DE MODELOS PELA API AUTOMOTIVA
 // =========================================
@@ -28,7 +127,9 @@ if (contactForm) {
 const vehicleSearchForm = document.getElementById("vehicleSearchForm");
 
 if (vehicleSearchForm) {
+
     vehicleSearchForm.addEventListener("submit", async function (event) {
+
         event.preventDefault();
 
         const makeInput = document.getElementById("vehicleMake");
