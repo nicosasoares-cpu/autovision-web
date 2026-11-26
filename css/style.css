@@ -1190,3 +1190,123 @@ textarea:focus-visible,
         font-size: 13px;
     }
 }
+
+
+/* =========================================
+   ACESSIBILIDADE E RESPONSIVIDADE FINAL
+========================================= */
+
+/* Evita transbordamento de textos */
+
+.card__title,
+.card__description,
+.contact__feedback,
+.api-search__status,
+.api-search__results {
+    overflow-wrap: anywhere;
+}
+
+/* Estado dos botoes desabilitados */
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.api-search__button:disabled,
+.contact__button:disabled {
+    transform: none;
+}
+
+/* Navegacao acessivel pelo teclado */
+
+.nav__link:focus-visible,
+.card__link:focus-visible,
+.categories__link:focus-visible,
+.api-search__button:focus-visible {
+    outline: 2px solid var(--cor-vermelha);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   RESPONSIVIDADE - TABLETS
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .card__content {
+        padding: 22px;
+    }
+
+    .comparison__table-wrapper {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+    }
+}
+
+/* =========================================
+   RESPONSIVIDADE - CELULARES
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    .nav__link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 6px;
+    }
+
+    .section-heading__description {
+        font-size: 13px;
+    }
+
+    .card__content {
+        padding: 20px;
+    }
+
+    .card__title {
+        font-size: 20px;
+    }
+
+    .contact__field input,
+    .contact__field select,
+    .contact__field textarea,
+    .api-search__field input {
+        font-size: 16px;
+    }
+
+    .api-search__button,
+    .contact__button {
+        min-height: 44px;
+    }
+}
+
+/* =========================================
+   ACESSIBILIDADE - MOVIMENTO REDUZIDO
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .card:hover,
+    .hero__button:hover,
+    .about__button:hover,
+    .contact__button:hover,
+    .api-search__button:hover,
+    .categories__item:hover {
+        transform: none;
+    }
+}

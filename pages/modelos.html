@@ -325,30 +325,47 @@
             <div class="api-search__container">
 
                 <!-- Formulário de pesquisa -->
-                <form id="vehicleSearchForm" class="api-search__form">
+                <form class="api-search__form" id="vehicleSearchForm">
 
-                    <div class="api-search__field">
+    <div class="api-search__field">
+        <label for="vehicleMake">Fabricante</label>
+        <input
+            type="text"
+            id="vehicleMake"
+            name="fabricante"
+            placeholder="Ex.: BMW, Porsche, Toyota"
+            minlength="2"
+            maxlength="50"
+            required>
+    </div>
 
-                        <label for="vehicleMake">
-                            Fabricante do veículo
-                        </label>
+    <div class="api-search__field">
+        <label for="vehicleYear">Ano do veículo (opcional)</label>
+        <input
+            type="number"
+            id="vehicleYear"
+            name="ano"
+            placeholder="Ex.: 2025"
+            min="1996"
+            max="2027"
+            step="1">
+    </div>
 
-                        <input
-                            type="search"
-                            id="vehicleMake"
-                            name="vehicleMake"
-                            placeholder="Exemplo: Porsche, Toyota, Honda..."
-                            maxlength="50"
-                            autocomplete="off"
-                            required>
+    <button
+        type="submit"
+        class="api-search__button"
+        id="vehicleSearchButton">
+        Buscar modelos
+    </button>
 
-                    </div>
+    <button
+        type="reset"
+        class="api-search__button"
+        id="vehicleClearButton">
+        Limpar pesquisa
+    </button>
 
-                    <button type="submit" class="api-search__button">
-                        Buscar modelos
-                    </button>
-
-                </form>
+</form>
 
                 <!-- Mensagens de carregamento, sucesso e erro -->
                 <p
