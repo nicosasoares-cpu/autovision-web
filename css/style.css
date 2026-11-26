@@ -206,9 +206,18 @@ a:focus-visible {
 
 .featured__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    grid-template-areas: "card card card";
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
+    align-items: stretch;
+}
+
+.featured__grid > .card {
+    min-width: 0;
+    height: 100%;
+}
+
+.featured__grid .card__content {
+    overflow-wrap: anywhere;
 }
 
 .card {
@@ -341,9 +350,7 @@ a:focus-visible {
 
     .featured__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-areas:
-            "card card"
-            "card card";
+        
     }
 
     .about {
@@ -390,10 +397,7 @@ a:focus-visible {
 
     .featured__grid {
         grid-template-columns: 1fr;
-        grid-template-areas:
-            "card"
-            "card"
-            "card";
+       
     }
 
     .card__image {
@@ -415,7 +419,7 @@ a:focus-visible {
 
     .featured__grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-areas: "card card card";
+       
     }
 }
 
@@ -501,13 +505,13 @@ a:focus-visible {
 
 @media screen and (max-width: 768px) {
 
-    .models__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-areas:
-            "carro1 carro2"
-            "carro3 carro4"
-            "carro5 carro6";
-    }
+.models__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        "carro1 carro2"
+        "carro3 carro4"
+        "carro5 carro6";
+}
 
 }
 
@@ -522,16 +526,16 @@ a:focus-visible {
         padding: 60px 18px;
     }
 
-    .models__grid {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "carro1"
-            "carro2"
-            "carro3"
-            "carro4"
-            "carro5"
-            "carro6";
-    }
+.models__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "carro1"
+        "carro2"
+        "carro3"
+        "carro4"
+        "carro5"
+        "carro6";
+}
 
 }
 
