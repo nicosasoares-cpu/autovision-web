@@ -122,7 +122,7 @@ a:focus-visible {
 
     background:
         linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.25)),
-        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70')
+        url('../images/veiculos/porsche.jpg')
         center/cover no-repeat;
 }
 
@@ -206,9 +206,18 @@ a:focus-visible {
 
 .featured__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    grid-template-areas: "card card card";
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
+    align-items: stretch;
+}
+
+.featured__grid > .card {
+    min-width: 0;
+    height: 100%;
+}
+
+.featured__grid .card__content {
+    overflow-wrap: anywhere;
 }
 
 .card {
@@ -341,9 +350,7 @@ a:focus-visible {
 
     .featured__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-areas:
-            "card card"
-            "card card";
+        
     }
 
     .about {
@@ -390,10 +397,7 @@ a:focus-visible {
 
     .featured__grid {
         grid-template-columns: 1fr;
-        grid-template-areas:
-            "card"
-            "card"
-            "card";
+       
     }
 
     .card__image {
@@ -415,7 +419,7 @@ a:focus-visible {
 
     .featured__grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-areas: "card card card";
+       
     }
 }
 
@@ -428,7 +432,7 @@ a:focus-visible {
     padding: 70px 8%;
     background:
         linear-gradient(90deg, #090909, rgba(0,0,0,0.65)),
-        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7')
+        url('../images/veiculos/esportivo.jpg')
         center/cover no-repeat;
 
     display: flex;
@@ -501,13 +505,13 @@ a:focus-visible {
 
 @media screen and (max-width: 768px) {
 
-    .models__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-areas:
-            "carro1 carro2"
-            "carro3 carro4"
-            "carro5 carro6";
-    }
+.models__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        "carro1 carro2"
+        "carro3 carro4"
+        "carro5 carro6";
+}
 
 }
 
@@ -522,16 +526,16 @@ a:focus-visible {
         padding: 60px 18px;
     }
 
-    .models__grid {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "carro1"
-            "carro2"
-            "carro3"
-            "carro4"
-            "carro5"
-            "carro6";
-    }
+.models__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "carro1"
+        "carro2"
+        "carro3"
+        "carro4"
+        "carro5"
+        "carro6";
+}
 
 }
 
@@ -960,5 +964,229 @@ img {
 
     .api-search__button {
         width: 100%;
+    }
+}
+
+
+/* =========================================
+   METODOLOGIA BEM E ACESSIBILIDADE VISUAL
+========================================= */
+
+/* Modificador BEM: cartão em destaque */
+
+.card--destaque {
+    border: 2px solid var(--cor-vermelha);
+    box-shadow: 0 4px 20px rgba(227, 38, 54, 0.15);
+}
+
+.card--destaque:hover {
+    box-shadow: 0 8px 30px rgba(227, 38, 54, 0.25);
+}
+
+/* Interação com os cartões */
+
+.card__link {
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.card__link:hover {
+    color: var(--cor-texto);
+    text-decoration: underline;
+}
+
+.card:focus-within {
+    border-color: var(--cor-vermelha);
+}
+
+/* Acessibilidade e navegação pelo teclado */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.comparison__table-wrapper:focus-visible {
+    outline: 2px solid var(--cor-vermelha);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   APRIMORAMENTOS DO COMPARATIVO
+========================================= */
+
+.comparison__table-wrapper {
+    max-width: 100%;
+}
+
+.comparison__caption {
+    padding: 18px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.comparison__table tbody th {
+    background-color: transparent;
+    border-top: 1px solid #303035;
+    color: var(--cor-texto);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-align: left;
+}
+
+.comparison__hint {
+    margin-top: 15px;
+    color: var(--cor-secundaria);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* =========================================
+   APRIMORAMENTOS DO FORMULÁRIO
+========================================= */
+
+.contact__instructions {
+    color: var(--cor-secundaria);
+    font-size: 12px;
+}
+
+.contact__note {
+    padding: 15px;
+    background-color: var(--cor-fundo);
+    border-left: 3px solid var(--cor-vermelha);
+    border-radius: 4px;
+    color: var(--cor-secundaria);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   CATEGORIAS AUTOMOTIVAS - FLEXBOX
+========================================= */
+
+.categories {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 30px;
+}
+
+/* Organização dos cartões com Flexbox */
+
+.categories__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
+}
+
+/* Estilização dos cartões */
+
+.categories__item {
+    flex: 1 1 260px;
+    min-width: 0;
+    max-width: 360px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 30px;
+    background-color: var(--cor-superficie);
+    border: 1px solid #252529;
+    border-radius: 8px;
+
+    transition: border-color 0.3s,
+                box-shadow 0.3s;
+}
+
+.categories__item:hover,
+.categories__item:focus-within {
+    border-color: var(--cor-vermelha);
+    box-shadow: 0 6px 20px rgba(227, 38, 54, 0.15);
+}
+
+.categories__title {
+    color: var(--cor-texto);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.categories__description {
+    color: var(--cor-secundaria);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.categories__link {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 10px;
+    color: var(--cor-vermelha);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.categories__link:hover {
+    color: var(--cor-texto);
+    text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVIDADE - TABLET
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .categories {
+        padding: 60px 20px;
+    }
+
+    .categories__list {
+        gap: 20px;
+    }
+
+    .categories__item {
+        flex-basis: 240px;
+        padding: 25px;
+    }
+}
+
+/* =========================================
+   RESPONSIVIDADE - CELULAR
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    .categories {
+        padding: 50px 18px;
+    }
+
+    .categories__list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .categories__item {
+        flex: 1 1 auto;
+        max-width: 100%;
+        padding: 22px;
+    }
+
+    .categories__title {
+        font-size: 20px;
+    }
+
+    .categories__description {
+        font-size: 13px;
     }
 }
