@@ -124,55 +124,147 @@ if (contactForm) {
 // CONSULTA DE MODELOS PELA API AUTOMOTIVA
 // =========================================
 
-const vehicleSearchForm = document.getElementById("vehicleSearchForm");
+const vehicleSearchForm =
+    document.getElementById("vehicleSearchForm");
 
 if (vehicleSearchForm) {
+
+    const makeInput =
+        document.getElementById("vehicleMake");
+
+    const yearInput =
+        document.getElementById("vehicleYear");
+
+    const status =
+        document.getElementById("vehicleSearchStatus");
+
+    const resultsList =
+        document.getElementById("vehicleResults");
+
+    const searchButton =
+        document.getElementById("vehicleSearchButton");
+
+    const clearButton =
+        document.getElementById("vehicleClearButton");
+
+    const maxYear = new Date().getFullYear() + 1;
+    const resultLimit = 50;
+
+    let searching = false;
+
+    yearInput.max = String(maxYear);
+
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+
+    vehicleSearchForm.addEventListener("reset", function () {
+
+        resultsList.replaceChildren();
+        status.textContent = "";
+
+    });
 
     vehicleSearchForm.addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
-        const makeInput = document.getElementById("vehicleMake");
-        const status = document.getElementById("vehicleSearchStatus");
-        const resultsList = document.getElementById("vehicleResults");
-        const searchButton = vehicleSearchForm.querySelector("button");
-
-        const make = makeInput.value.trim();
-
-        if (!make) {
-            status.textContent = "Digite o nome de uma fabricante.";
+        if (searching) {
             return;
         }
 
+        const make = makeInput.value.trim();
+        const year = yearInput.value.trim();
+
         resultsList.replaceChildren();
-        status.textContent = "Buscando modelos...";
+
+        const validMake =
+            /^[\p{L}\p{N} .&'-]{2,50}$/u;
+
+        if (!validMake.test(make)) {
+
+            status.textContent =
+                "Informe uma fabricante válida.";
+
+            makeInput.focus();
+
+            return;
+        }
+
+        if (year !== "") {
+
+            const numericYear = Number(year);
+
+            if (
+                !Number.isInteger(numericYear) ||
+                numericYear < 1996 ||
+                numericYear > maxYear
+            ) {
+
+                status.textContent =
+                    `Informe um ano entre 1996 e ${maxYear}.`;
+
+                yearInput.focus();
+
+                return;
+            }
+        }
+
+        searching = true;
 
         searchButton.disabled = true;
+        clearButton.disabled = true;
+
         searchButton.textContent = "Pesquisando...";
 
-        try {
-            const url =
-                `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${encodeURIComponent(make)}?format=json`;
+        status.textContent =
+            "Consultando a base de dados automotiva...";
 
-            const response = await fetch(url);
+        vehicleSearchForm.setAttribute("aria-busy", "true");
+
+        const controller = new AbortController();
+
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, 15000);
+
+        try {
+
+            const baseUrl =
+                "https://vpic.nhtsa.dot.gov/api/vehicles";
+
+            const encodedMake =
+                encodeURIComponent(make);
+
+            const url = year
+
+                ? `${baseUrl}/GetModelsForMakeYear/make/${encodedMake}/modelyear/${year}?format=json`
+
+                : `${baseUrl}/GetModelsForMake/${encodedMake}?format=json`;
+
+            const response = await fetch(url, {
+                signal: controller.signal
+            });
 
             if (!response.ok) {
-                throw new Error("Não foi possível consultar a API.");
+                throw new Error(`Erro HTTP: ${response.status}`);
             }
 
             const data = await response.json();
 
-            const models = Array.isArray(data.Results)
-                ? data.Results
-                : [];
+            if (!Array.isArray(data.Results)) {
+                throw new Error("Resposta inválida da API.");
+            }
 
             const uniqueModels = [
                 ...new Map(
-                    models
-                        .filter(model => model.Model_Name)
+                    data.Results
+                        .filter(model =>
+                            typeof model.Model_Name === "string" &&
+                            model.Model_Name.trim() !== ""
+                        )
                         .map(model => [
-                            model.Model_Name.toLowerCase(),
-                            model.Model_Name
+                            model.Model_Name.trim().toLowerCase(),
+                            model.Model_Name.trim()
                         ])
                 ).values()
             ];
@@ -182,38 +274,71 @@ if (vehicleSearchForm) {
             );
 
             if (uniqueModels.length === 0) {
+
                 status.textContent =
-                    "Nenhum modelo encontrado. Tente outra fabricante.";
+                    "Nenhum modelo encontrado. Verifique os dados informados.";
+
                 return;
             }
 
-            const limit = 50;
+            const fragment =
+                document.createDocumentFragment();
 
-            uniqueModels.slice(0, limit).forEach(modelName => {
-                const item = document.createElement("li");
+            uniqueModels.slice(0, resultLimit).forEach(modelName => {
+
+                const item =
+                    document.createElement("li");
+
                 item.textContent = modelName;
-                resultsList.appendChild(item);
+
+                fragment.appendChild(item);
+
             });
 
-            status.textContent =
-                `Encontramos ${uniqueModels.length} modelo(s) para ${make}.`;
+            resultsList.appendChild(fragment);
 
-            if (uniqueModels.length > limit) {
-                const note = document.createElement("li");
-                note.textContent =
-                    `Exibindo os primeiros ${limit} modelos.`;
-                resultsList.appendChild(note);
+            const yearDescription =
+                year ? ` no ano de ${year}` : "";
+
+            status.textContent =
+                `${uniqueModels.length} modelo(s) encontrado(s) para ${make}${yearDescription}.`;
+
+            if (uniqueModels.length > resultLimit) {
+
+                status.textContent +=
+                    ` Exibindo os primeiros ${resultLimit}.`;
+
             }
 
         } catch (error) {
-            status.textContent =
-                "Não foi possível acessar a API. Verifique sua conexão e tente novamente.";
+
+            if (error.name === "AbortError") {
+
+                status.textContent =
+                    "A consulta demorou muito. Tente novamente.";
+
+            } else {
+
+                status.textContent =
+                    "Não foi possível consultar a API. Verifique sua conexão.";
+
+            }
 
             console.error("Erro na consulta automotiva:", error);
 
         } finally {
+
+            clearTimeout(timeout);
+
+            searching = false;
+
             searchButton.disabled = false;
+            clearButton.disabled = false;
+
             searchButton.textContent = "Buscar modelos";
+
+            vehicleSearchForm.setAttribute("aria-busy", "false");
+
         }
     });
 }
