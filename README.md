@@ -360,10 +360,43 @@ do Visual Studio Code.
 
 A pesquisa automotiva requer conexão com a internet.
 
+
+## Website publicado
+
+[Acesse o AutoVision online](https://nicosasoares-cpu.github.io/autovision-web/)
+
 ## Capturas de tela
 
-As capturas do website serão disponibilizadas no diretório
-[screenshots](screenshots/).
+### Página inicial
+
+![Página inicial](screenshots/inicio.png)
+
+### Catálogo de veículos
+
+![Modelos](screenshots/modelos.png)
+
+### Notícias automotivas
+
+![Notícias](screenshots/noticias.png)
+
+### Comparativo de veículos
+
+![Comparativo](screenshots/comparativo.png)
+
+### Formulário de contato
+
+![Contato](screenshots/contato.png)
+
+### Consulta pela API automotiva
+
+![API automotiva](screenshots/api.png)
+
+### Responsividade
+
+| Celular - 375 px | Tablet - 768 px |
+|---|---|
+| ![Mobile](screenshots/mobile.png) | ![Tablet](screenshots/tablet.png) |
+
 
 ## Referências
 
